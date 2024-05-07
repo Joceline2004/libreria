@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding: 0;
+   font-family: 'Poppins', sans-serif;
+
+}
+@font-face {
+    font-family:'Poppins',sans-serif;
+}
+
+navbar-brand{
+
+}
+
+body {
+     background-image: url('opaco.jpeg'); /* Ruta de tu imagen de fondo */
+     background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+     background-position: center; /* Centra la imagen de fondo */
+      background-attachment: fixed;
+       z-index: 2;
+   }
+   body::before {
+           width:1530px;
+           height:1300px;
+           content: '';
+           position: absolute;
+           top: -10px; /* Tamaño del borde */
+           left: -10px; /* Tamaño del borde */
+           right: -10px; /* Tamaño del borde */
+           bottom: -10px; /* Tamaño del borde */
+           z-index: -1;
+           background: radial-gradient(circle, rgba(0,0,0,0) 60%, black 100%);
+           pointer-events: none;
+         }
+   .image img{
+    width:1200px;
+    height:653px;
+    margin-top:-380px;
+
+  }
+  .image:before{
+    content: '';
+  position: absolute;
+  width: 2000px; /* Añade 'px' para definir correctamente la anchura */
+  height: 1800px;
+  border-radius: 50%;
+background:linear-gradient(-45deg,#000000,#C6C2C2);
+  top: 40%;
+  right: 45%;
+  transform: translateY(-50%);
+  z-index:-1;
+
+  }
+  .studying{
+
+    margin-left:-100px;
+    margin-top:-100px;
+  }
+  .l{
+    color:white;
+    font-weight:800px;
+  }
+  .texto-derecha {
+    margin-right: 70px;
+    font-weight:bold 100px;
+
+  }
+  p .texto-derecha{
+    margin-right: 70px;
+    font-weight:bold 400;
+    text-align: justify;
+  }
+  .image{
+
+    background-color:black;
+    width:auto;
+    height:700px;
+    display: flex;
+ flex-direction: column; /* Alinea los elementos en columna */
+ align-items: flex-start; /* Alinea los elementos en el inicio (izquierda) */
+ position: relative; /* Añadido para posicionar correctamente los pseudoelementos */
+    overflow: hidden;
+    z-index:1;
+  }
+
+
+   .item{
+    margin:6% 0 0 36%;
+    position:relative;
+     width:25%;
+
+   }
+   .iimage{
+     display:block;
+     width:100%;
+    height:370px;
+   }
+   .info-products{
+    overflow:hidden;
+    left:0;
+    bottom:0;
+    right:0;
+    height:0;
+    width:100%;
+      position: absolute;
+     background-color:rgba(0,0,0,0.75);
+     transition:0.4s ease;
+   }
+   .item:hover .info-products{
+     height:100%;
+
+   }
+   .nombre{
+   width: 100%;
+   margin-top: 50%; /* Ajusta la posición vertical del texto */
+   color: white;
+   transform: rotate(-5deg) skewX(-5deg);
+   text-align: center;
+
+
+ }
+
+ .precio {
+   line-height: 1.4em;
+   margin: 30% 0 0 18%; /* Ajusta la posición vertical y horizontal del texto */
+   width: 70%;
+   letter-spacing: 4px;
+   color: white;
+   text-align: center;
+   margin-top: 1px;
+
+ }
+   .texto{
+     margin-left: 1000px; /* Mueve el texto a la derecha */
+     color:#e0e1e9;
+     margin-top:300px;
+     text-align: center;
+   }
+   p{
+
+     margin-top:20px;
+     font-family: sans-serif;
+     font-weight: 500;
+   }
+
+   h1{
+     font-weight: 15px;
+   }
+   h2{
+     font-weight: 20px;
+     color:white;
+   }
+
+.buscados{
+  margin-top:50px;
+  text-align: center;
+  margin-bottom: 30px;
+  color:white;
+  font-weight:800;
+}
+.linea-horizontal {
+  border-top: 5px solid white; /* Línea horizontal blanca */
+  position: absolute; /* Posicionamiento absoluto */
+  width: 100%; /* Ancho completo */
+  top: 8%; /* Alineación vertical en el centro */
+  transform: translateY(-50%); /* Ajuste fino de la alineación vertical */
+  margin-top:20px;
+}
+.linea-horizontal2{
+  border-top: 5px solid white; /* Línea horizontal blanca */
+  position: absolute; /* Posicionamiento absoluto */
+  width: 100%; /* Ancho completo */
+  top: 98%; /* Alineación vertical en el centro */
+  transform: translateY(-50%); /* Ajuste fino de la alineación vertical */
+
+}
+.container{
+  display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.item {
+
+    width:250px;
+    height:420px;
+    border-radius: 10px;
+    padding: 25px;
+
+    color:white;
+    text-align:center;
+    float:left;
+    margin:25px;
+background: rgb(232,243,244);
+background: linear-gradient(0deg, rgba(232,243,244,1) 0%, rgba(115,113,112,1) 100%);
+
+}
+
+.Button{
+  font-size:14px;
+  font-weight: bold;
+  font-family: sans-serif;
+  border-radius: 12px;
+  width:140px;
+  height:45px;
+}
+.separador{
+  height:20px;
+}
+.separadorgrande{
+  margin:150px;
+}
+.pagination .page-link {
+  color: grey; /* Cambiar el color del texto de los enlaces de la paginación */
+}
+
+.pagination .page-item.active .page-link {
+  background-color: grey; /* Cambiar el color de fondo del enlace activo */
+  border-color: grey; /* Cambiar el color del borde del enlace activo */
+}
+.pagination .page-link:active {
+  background-color: grey; /* Cambiar el color de fondo cuando se hace clic en el enlace */
+  border-color: grey; /* Cambiar el color del borde cuando se hace clic en el enlace */
+}
+ul{
+  list-style:none;
+
+}
+ul li {
+  display:inline-block;
+  position:relative;
+}
+ul li a{
+  display:block;
+  padding:20px 25px;
+  text-decoration: none;
+}
+ul li ul.dropdown li{
+  display:block;
+}
+ul li ul.dropdown{
+  width:100%;
+  background:#22428C;
+  display:none;
+  z-index:999;
+  position:absolute;
+
+}
+ul li a:hover{
+
+}
+.j{
+  margin-top:110px;
+  text-align: center;
+
+}
+.gif{
+  width:1250px;
+  height:400px;
+margin-left:20px;
+margin-top:20px;
+
+}
+.gnegro{
+  background-image: linear-gradient(to bottom, #0f0f11, #1b1b1e, #26262b, #323238, #3e3e46);
+  width:absolute;
+  height:900;
+  image-orientation:right;
+    color:white;
+    font-family:sans-serif;
+    position:relative;
+      text-align: center;
+}
+.linea-horizontal3 {
+  border-top: 5px solid black; /* Línea horizontal blanca */
+  position: absolute; /* Posicionamiento absoluto */
+  width: 100%; /* Ancho completo */
+  top: -24%; /* Alineación vertical en el centro */
+  transform: translateY(-50%); /* Ajuste fino de la alineación vertical */
+  margin-top:90px;
+}
+.linea-horizontal4 {
+  border-top: 5px solid black; /* Línea horizontal blanca */
+  position: absolute; /* Posicionamiento absoluto */
+  width: 100%; /* Ancho completo */
+  top: 90%; /* Alineación vertical en el centro */
+  transform: translateY(-50%); /* Ajuste fino de la alineación vertical */
+  margin-top:90px;
+}
+.linea-horizontal7{
+  border-top: 70px solid black; /* Línea horizontal blanca */
+  position: absolute; /* Posicionamiento absoluto */
+  width: 100%; /* Ancho completo */
+  top: 5%; /* Alineación vertical en el centro */
+  transform: translateY(-50%); /* Ajuste fino de la alineación vertical */
+  margin-top:90px;
+}
+.separadormediano{
+  height:80px;
+}
+
+.separadorg{
+  height:100px;
+}
+.bold{
+  margin-top:10px;
+  font-weight:bold;
+  color:white;
+  margin-left:30px;
+  font-family:sans-serif;
+  position: absolute;
+  bottom: 0; /* Lo posiciona en la parte inferior del contenedor */
+  left: 0;
+  right: 0; /* Lo centra horizontalmente */
+  text-align: center; /* Alinea el texto al centro */
+   /* Espacio opcional entre el texto y el borde inferior */
+}
+.barra-usuario {
+
+    width: 100%;
+     background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    color: black;
+    height:500px;
+
+}
+/*popup*/
+/* Estilo del botón */
+.popup-btn {
+    padding: 10px 20px;
+    border-radius: 12px;
+    background-color:white;
+    color:black;
+    border: none;
+    cursor: pointer;
+    margin-top:20px;
+}
+
+/* Estilo del popup */
+.popup {
+    border-radius: 12px;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 9999;
+}
+
+/* Estilo del contenido del popup */
+.popup-content {
+    text-align: center;
+    Color:black;
+}
+
+/* Estilo del botón de cierre */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Clase activa para mostrar el popup */
+.popup.active {
+    display: block;
+}
+
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 34px; /* Tamaño de la fuente de la "X" */
+}
+.p-button{
+    border-radius: 12px;
+    height:40px;
+    width:80px;
+}
+.hrtext{
+  font-size: 80px;
+  text-align: center;
+  margin-top:-10px;
+  background-color:rgba(0,0,0,0.35);
+  height:52px;
+  width:auto;
+  border-top:10px;
+}
+.transparent{
+  height:580px;
+  width:auto;
+  background-color:rgba(0,0,0,0.60);
+}
