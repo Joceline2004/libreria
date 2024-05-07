@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="100">
+    <title>biblioteca</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz@0,6..12;1,6..12&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a  href="{{ url_for('libreria')}}">
+          <button type="button" class="btn btn-outline-secondary"style="  font-family: sans-serif;font-weight: bold;">Inicio</button>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">GENEROS LITERARIOS</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+
+                <a class="nav-link active" aria-current="page" href="{{ url_for('libros')}}">Todos</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('drama')}}">Drama</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('fantasia')}}">Fantasia</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('romance')}}">Romance</a>
+              </li>
+
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+
+
+
+  <!--libros-->
+
+  <div class="separadorg"></div>
+  <div class="hrtext"><h1 class="l">L I B R O S</h1></div>
+  <div class="separador"></div>
+  <div class="container">
+
+    <div class="item">
+
+      <img src="{{ url_for('static', filename='l.webp') }}"
+      alt="imagen dorito"
+      width="150" height="160" class="iimage">
+
+      <div class="info-products">
+
+        <h2 class="nombre">La chica del tren</h2>
+        <p class="precio">Emily Blunt</p>
+        <!-- Botón para mostrar el popup -->
+        <button class="popup-btn" onclick="document.getElementById('popup1').classList.add('active')">Info</button>
+        <!-- Popup -->
+        <div id="popup1" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="document.getElementById('popup1').classList.remove('active')">&times;</span>
+                 <div class="separador"></div>
+                <h2 >La chica del tren</h2>
+                <p>Emily Blunt</p>
+                <p>Rachel Watson es una mujer alcohólica que envidia la vida perfecta de Scott y Megan, una pareja a la que ve todos los días en su jardín cuando viaja en tren. Un día, sin embargo, Rachel ve algo inusual en Megan y decide tirar del hilo para descubrir la verdad.</p>
+                <!-- Enlace para abrir la página -->
+            <form action="{{ url_for('add_to_cart', book_id=1) }}"  method="post">
+          <input type="hidden" name="url" value="{{ book['url'] }}">
+           <input type="hidden" name="title" value="La chica del tren">
+           <input type="hidden" name="author" value="Emily Blunt">
+                <a href="{{ url_for('prestamos')}}"><button type="submit" class="p-button">Prestamo</button></a>
+                <div class="separador"></div>
+            </form>
+                   <div class="separador"></div>
+            </div>
+        </div>
+    </div>
+      </div>
+      <div class="item">
+
+          <img src="{{ url_for('static', filename='lqnt.jpg') }}"
+          alt="imagen dorito"
+          width="150" height="160" class="iimage">
+        <div class="info-products">
+          <h2 class="nombre">Lo que no te mata</h2>
+          <p class="precio">David Lagercrants</p>
+          <!-- Botón para mostrar el popup -->
+          <button class="popup-btn" onclick="document.getElementById('popup2').classList.add('active')">Info</button>
+
+          <!-- Popup -->
+          <div id="popup2" class="popup">
+              <div class="popup-content">
+                  <span class="close" onclick="document.getElementById('popup2').classList.remove('active')">&times;</span>
+                   <div class="separador"></div>
+                  <h2 >Lo que no te mata</h2>
+                  <p>David Lagercrants</p>
+                  <p>Un ingeniero informático llamado Frans Balder abandona un prestigioso trabajo en Silicon Valley y vuelve a Suecia para hacerse cargo de su hijo autista August. Balder es un ingeniero informático que trabaja en importantes proyectos sobre inteligencia artificial, por lo cual vive en amenaza de muerte. A esto se le suma que descubre que su hijo tiene el Síndrome de Savant y es capaz de dibujar con una precisión matemática. Blomkvist y Salander entran en escena para enfrentarse a la organización que persigue a Balder.</p>
+                  <form action="{{ url_for('add_to_cart', book_id=2) }}" method="post">
+                <input type="hidden" name="url" value="{{ book['url'] }}">
+                 <input type="hidden" name="title" value="Lo que no te mata">
+                 <input type="hidden" name="author" value="David Lagercrants">
+                      <a href="{{ url_for('prestamos')}}"><button type="submit" class="p-button">Prestamo</button></a>
+                      <div class="separador"></div>
+                  </form>
+                     <div class="separador"></div>
+              </div>
+          </div>
+        </div>
+  </div>
+        <div class="item">
+
+            <img src="{{ url_for('static', filename='oy.jpg') }}"
+            alt="imagen takis"
+            width="150" height="200"class="iimage">
+
+          <div class="info-products">
+            <h2 class="nombre">Orgullo y prejucio</h2>
+            <div class="separador"></div>
+            <p  class="precio">Keira Knightley</p>
+            <!-- Botón para mostrar el popup -->
+            <button class="popup-btn" onclick="document.getElementById('popup3').classList.add('active')">Info</button>
+
+            <!-- Popup -->
+            <div id="popup3" class="popup">
+                <div class="popup-content">
+                    <span class="close" onclick="document.getElementById('popup3').classList.remove('active')">&times;</span>
+                     <div class="separador"></div>
+                    <h2 >Orgullo y prejucio</h2>
+                    <p>Keira Knightley</p>
+                    <p>Es una novela de desarrollo personal, en la que las dos figuras principales, Elizabeth Bennet y Fitzwilliam Darcy, cada uno a su manera y, no obstante, de forma muy parecida, deben madurar para superar algunas crisis y aprender de sus errores para poder encarar el futuro en común, superando el orgullo de clase de Darcy y los prejuicios de Elizabeth hacia él.
+                     Es una de las obras más conocidas de la literatura inglesa, gracias a innumerables ediciones y, recientemente, a películas (como Orgullo y prejuicio, 2005), reescrita incluso en forma de un musical de Broadway</p>
+                    <!-- Enlace para abrir la página -->
+                    <form action="{{ url_for('add_to_cart', book_id=3) }}" method="post">
+                  <input type="hidden" name="url" value="{{ book['url'] }}">
+                   <input type="hidden" name="title" value="Orgullo y prejucio">
+                   <input type="hidden" name="author" value="Keira Knightley">
+                        <a href="{{ url_for('prestamos')}}"><button type="submit" class="p-button">Prestamo</button></a>
+                        <div class="separador"></div>
+                    </form>
+
+                       <div class="separador"></div>
+                </div>
+            </div>
+
+  </div>
+  </div>
+          <div class="item">
+            <figure>
+              <img src="{{ url_for('static', filename='corazon.jpeg') }}"
+              alt="imagen rufles"
+              width="150" height="200" class="iimage">
+            </figure>
+            <div class="info-products">
+<div class="separador"></div>
+              <h2 class="nombre">Corazon</h2>
+              <div class="separador"></div>
+              <p  class="precio">Edmondo De Amcis</p>
+              <!-- Botón para mostrar el popup -->
+              <button class="popup-btn" onclick="document.getElementById('popup4').classList.add('active')">Info</button>
+
+              <!-- Popup -->
+              <div id="popup4" class="popup">
+                  <div class="popup-content">
+                      <span class="close" onclick="document.getElementById('popup4').classList.remove('active')">&times;</span>
+                       <div class="separador"></div>
+                      <h2 >Corazon diario de un nino</h2>
+                      <p>Edmondo De Amcis</p>
+                      <p>Durante más de cincuenta años este libro, que narra las alegrías y las tristezas de un grupo de colegiales italianos, fue el más popular entre los infantes del mundo occidental.
+                      Publicada en 1886, Corazón. Diario de un niño es la novela más conocida y traducida del escritor italiano Edmundo de Amicis. Aplaudido por algunos lectores y vilipendiado por otros, el libro continúa editándose y representa el modelo de cierta narrativa dirigida a los niños. Es una literatura que busca recrear la vida escolar y exaltar determinados valores morales y nacionalistas. El libro cuenta la historia de Enrique, un estudiante italiano, y de sus compañeros de clase, quienes asisten a una escuela de Turín. Las vicisitudes de los chicos durante un curso son contadas con todo detalle. De manera paralela aparecen distintas historias de tono moralizante y patriótico protagonizadas por muchachos que realizan algún acto heroico en tiempos de guerra.</p>
+                      <form action="{{ url_for('add_to_cart', book_id=4) }}" method="post">
+                      <input type="hidden" name="url" value="{{ book['url'] }}">
+                      <input type="hidden" name="title" value="Corazon">
+                      <input type="hidden" name="author" value="Edmondo De Amcis">
+                      <a href="{{ url_for('prestamos')}}"><button type="submit" class="p-button">Prestamo</button></a>
+                      </form>
+                         <div class="separador"></div>
+                  </div>
+              </div>
+
+  </div>
+  </div>
+
+
+  <div class="item">
+
+    <figure>
+      <img src="{{ url_for('static', filename='eldoncel.webp') }}"
+      alt="imagen Chokis"
+      width="150" height="200" class="iimage">
+    </figure>
+    <div class="info-products">
+      <h2 class="nombre">Don Enrique el doliente</h2>
+      <p  class="precio">Mariano José de Larra</p>
+      <!-- Botón para mostrar el popup -->
+      <button class="popup-btn" onclick="document.getElementById('popup5').classList.add('active')">Info</button>
+
+      <!-- Popup -->
+      <div id="popup5" class="popup">
+          <div class="popup-content">
+              <span class="close" onclick="document.getElementById('popup5').classList.remove('active')">&times;</span>
+               <div class="separador"></div>
+              <h2 >Don Enrique el doliente</h2>
+              <p>Mariano José de Larra</p>
+              <p>El doncel de don Enrique el Doliente recrea las peripecias de Macías, el eterno trovador enamorado de una dama casada. Los celos del marido provocan la muerte del doncel, comparablemente al mismo autor, que pondría fin a su vida por un fracaso sentimental.</p>
+              <form action="{{ url_for('add_to_cart', book_id=5) }}" method="post">
+              <input type="hidden" name="url" value="{{ book['url'] }}">
+              <input type="hidden" name="title" value="Don Enrique el doliente">
+              <input type="hidden" name="author" value="Mariano José de Larra">
+                  <a href="{{ url_for('prestamos')}}"><button type="submit" class="p-button">Prestamo</button></a>
+              </form>
+                 <div class="separador"></div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <figure>
+      <img src="{{ url_for('static', filename='laedad.jpg') }}"
+      alt="imagen Chokis"
+      width="150" height="200" class="iimage">
+    </figure>
+    <div class="info-products">
+
+      <h2 class="nombre">La edad de la inocencia</h2>
+      <p  class="precio"></p>
+
+      <!-- Botón para mostrar el popup -->
+      <button class="popup-btn" onclick="document.getElementById('popup6').classList.add('active')">Info</button>
+
+      <!-- Popup -->
+      <div id="popup6" class="popup">
+          <div class="popup-content">
+              <span class="close" onclick="document.getElementById('popup6').classList.remove('active')">&times;</span>
+               <div class="separador"></div>
+              <h2 >La edad de la inocencia</h2>
+              <p>Edith Wharton</p>
+              <p>Newland Archer, un prometedor abogado, está resignado a conformarse con una vida tranquila junto a su prometida May Welland, una joven adorable pero totalmente convencional. Sin embargo, cuando la condesa Olenksa, la rebelde prima de May, vuelve a Nueva York precedida por los escándalos de su vida amorosa, Newland lo arriesga todo ante la oportunidad de vivir un amor verdadero.</p>
+              <form action="{{ url_for('add_to_cart', book_id=6) }}" method="post">
+              <input type="hidden" name="url" value="{{ book['url'] }}">
+              <input type="hidden" name="title" value="La edad de la inocencia">
+              <input type="hidden" name="author" value="Edith Wharton">
+                  <a href="{{ url_for('prestamos')}}"><button type="submit" class="p-button">Prestamo</button></a>
+               </form>
+                 <div class="separador"></div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+
+      <img src="{{ url_for('static', filename='lasaventuras.jpg') }}"
+      alt="imagen Chokis"
+      width="150" height="200" class="iimage">
+
+    <div class="info-products">
+      <div class="separador"></div>
+      <h2 class="nombre">Sherlock Holmes</h2>
+      <p  class="precio">Arthurr Conan Doyle</p>
+      <!-- Botón para mostrar el popup -->
+      <button class="popup-btn" onclick="document.getElementById('popup7').classList.add('active')">Info</button>
+
+      <!-- Popup -->
+      <div id="popup7" class="popup">
+          <div class="popup-content">
+              <span class="close" onclick="document.getElementById('popup7').classList.remove('active')">&times;</span>
+               <div class="separador"></div>
+              <h2 >Sherlock Holmes</h2>
+              <p>Arthurr Conan Doyle</p>
+              <p>Sherlock Holmes y su incondicional compañero Watson, deberán usar su agudeza intelectual y toda clase de recursos y habilidades para enfrentarse a un nuevo enemigo y desenmarañar un complot que podría destruir el país. Adaptación del cómic de Lionel Wigram, que reinventa los personajes de Arthur Conan Doyle, convirtiendo a Sherlock Holmes y al Doctor John Watson en detectives con habilidades para el boxeo y la esgrima respectivamente.</p>
+              <form action="{{ url_for('add_to_cart', book_id=7) }}" method="post">
+              <input type="hidden" name="url" value="{{ book['url'] }}">
+              <input type="hidden" name="title" value="Sherlock Holmes">
+              <input type="hidden" name="author" value="Arthurr Conan Doyle">
+                  <a href="{{ url_for('prestamos')}}"><button type="submit" class="p-button">Prestamo</button></a>
+              </form>
+                 <div class="separador"></div>
+          </div>
+      </div>
+      <div class="separador"></div>
+    </div>
+  </div>
+
+  <div class="item">
+    <figure>
+      <img src="{{ url_for('static', filename='elabanico.jpg') }}"
+      alt="imagen Chokis"
+      width="150" height="200" class="iimage">
+    </figure>
+    <div class="info-products">
+      <h2 class="nombre">El abanico de lady Windermere</h2>
+        <p  class="precio">Oscar Wilde</p>
+      <!-- Botón para mostrar el popup -->
+      <button class="popup-btn" onclick="document.getElementById('popup8').classList.add('active')">Info</button>
+
+      <!-- Popup -->
+      <div id="popup8" class="popup">
+          <div class="popup-content">
+              <span class="close" onclick="document.getElementById('popup8').classList.remove('active')">&times;</span>
+               <div class="separador"></div>
+              <h2 >El abanico de lady Windermere</h2>
+              <p>Oscar wilde</p>
+              <p>Lady Windermere se entera de que su marido puede estar manteniendo una relación con otra mujer. La duquesa de Berwick es la que ha delatado al marido. Cuando la duquesa de Berwick se retira con su hija, Lady Agatha, entra Lord Windermere en escena. Lady Windermere se enfrenta con su esposo y le pide explicaciones, pero él rechaza las acusaciones e invita a la supuesta amante, Mrs. Erlynne, al baile de cumpleaños de su mujer, para reincorporar a Mrs. Erlynne a la sociedad.
+              Ultrajada por la infidelidad de su marido, Lady Windermere decide abandonarlo para seguir a Lord Darlington, un amigo que acaba de confesarle su amor, pero que Lady Windermere rechaza.</p>
+              <form action="{{ url_for('add_to_cart', book_id=8) }}" method="post">
+              <input type="hidden" name="url" value="{{ book['url'] }}">
+              <input type="hidden" name="title" value="El abanico de lady Windermere">
+              <input type="hidden" name="author" value="Oscar wilde">
+              <a href="{{ url_for('prestamos')}}"><button type="submit" class="p-button">Prestamo</button></a>
+              </form>
+                 <div class="separador"></div>
+          </div>
+      </div>
+    </div>
+    <div class="separador"></div>
+
+  <!--paginador-->
+<div class="container py-4" >
+<nav>
+  <ul class="pagination pagination-lg justify-content-center"style="margin-left:-800px;">
+    <li class="page-item disabled">
+      <a class="page-link" href="#">Anterior</a>
+    </li>
+    <li class="page-item active">
+      <a class="page-link" href="{{ url_for('libros')}}">1</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="{{ url_for('libros1')}}">2</a>
+    </li>
+
+    <li class="page-item">
+      <a class="page-link" href="{{ url_for('libros1')}}">Siguiente</a>
+    </li>
+    </ul>
+    </nav>
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+  <script type=""></script>
+  <script>
+       $(document).ready(function(){
+          $('.dropdown-toggle').dropdown()
+      });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.3"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

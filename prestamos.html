@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="100">
+    <title>Leer Libro</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+      <style>
+      .cont{
+        display: flex;
+        max-width:1200px;
+        height:500px;
+        background-color:white;
+        border-radius: 20px;
+        margin:40px;
+        margin-top:40px;
+        margin-left:150px;
+        flex-direction: column;
+        overflow-y: scroll; /* Habilita la barra de desplazamiento vertical */
+        padding: 20px;
+      }
+      .cosa{
+
+        padding-left: 60px;
+        padding-top:5px;
+        border-radius: 15px;
+        width:1115px;
+        margin-left:15px;
+        height:300px;
+        background-color:#E3E2E0;
+        margin:20px;
+        border:2px solid #CBC8C8;
+      }
+      h1{
+        margin-top: 50px;
+        color:white;
+        text-align: center;
+        font-size: 40px;
+      }
+      header{
+
+        height:60px;
+        background-color:black;
+        align-items: center;
+        display: flex;
+
+      }
+      .navvbar{
+        height:80px;
+
+      }
+      .btn {
+        margin-left:1400px;
+
+    background-color: black;  /* Color de fondo negro */
+    color: white;             /* Color de texto blanco */
+    border: 2px solid white;  /* Borde blanco, sólido de 2px */
+    border-radius: 10px;      /* Esquinas redondeadas (10px de radio) */
+    padding: 10px 20px;       /* Espaciado interno para que el botón sea más grande */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Suaviza la transición del color de fondo */
+}
+.imag{
+  margin-left:20px;
+  margin-top: 30px;
+}
+
+.btn:hover {
+
+    background-color: grey;   /* Cambia el color de fondo a gris cuando se hace hover */
+}
+.p{
+  margin-left:80px;
+  color:#F0EFEF;
+  font-weight: bold;
+  font-size:25px;
+  margin-top:-50px;
+}
+
+.imagen{
+  width:120px;
+  height:160px;
+  border-radius: 5px;
+  border:5px solid #CBC8C8;
+}
+.h2{
+  color:black;
+
+}
+.txt{
+  margin-left:50px;
+
+  width:600px;
+  display: flex;          /* Activa Flexbox */
+              flex-direction: column; /* Alinea los elementos en una columna */
+              align-items: center;    /* Centra los elementos horizontalmente */
+}
+.text{
+  padding-left:10px;
+  padding-top:3px;
+  background-color: #F0EFEF;
+  border-radius: 20px;
+  height:37px;
+  margin:8px ;
+  border:2px solid #CBC8C8;
+  width:500px;
+}
+.text1{
+  padding-left:20px;
+  padding-top:3px;
+  background-color: #F0EFEF;
+  border-radius: 20px;
+  height:37px;
+  margin:8px ;
+  border:2px solid #CBC8C8;
+  width:800px;
+  margin-left:300px;
+}
+.ii{
+  margin-left: 800px;
+  margin-top:-160px;
+}
+.tit{
+  color:#A78154;
+}
+
+.bb:hover{
+  background-color: #ECAD61;   /* Cambia el color de fondo a un gris claro */
+                    /* Mantiene el color del texto blanco */
+      transform: scale(1.1);
+}
+.bi{
+  height:40px;
+  width:100px;
+    margin:20px;
+    background-color:#CAC8C2;
+      border:1px solid #B9B8B4;
+      color:#4E4D49;
+      border-radius: 10px;
+       display: inline-block;
+       font-size:16px;
+
+}
+.bi:hover{
+  background-color:#B1AFA9;
+  font-size:18px;
+  border:2px solid #73726B;
+  font-weight:bold;
+      transform: scale(1.1);
+}
+p{
+  font-weight: bold;
+  color:#FFC300
+;
+  font-size: 40px;
+  align-content: center;
+  margin-left:400px;
+  margin-top:-100px;
+}
+.error{
+  margin-top:150px;
+  margin-left:220px;
+  align-items:center;
+  height:200px;
+  width:200px;
+  padding:20px;
+
+}
+.button-container {
+        display: flex;
+        justify-content: center; /* Alinea los botones al inicio del contenedor */
+
+    }
+
+
+
+
+</style>
+
+</head>
+<header>
+  <div class="navbarr">
+  <img src="{{ url_for('static', filename='libros (1).png') }}" width="50px" height="50px" class="imag">
+  <p class="p">The Bookshelf</p>
+  <a  href="{{ url_for('libreria')}}">
+  <button class="btn" type="button">Inicio</button>
+</a>
+</div>
+</header>
+<body>
+
+  <h1>P R E S T A M O S</h1>
+
+  <div class="cont">
+     {% if cart %}
+    {% for item in cart %}
+    <div class="cosa">
+
+      <div class="txt">
+        <div class="text1">
+          <h2 class="h2">Libro: <span class="tit">{{ item['title'] }}</span></h2>
+        </div>
+        <div class="text1">
+          <h2 class="h2">Por:{{ item['author'] }}</h2>
+        </div>
+        <div class="text">
+          <h2 class="h2">Fecha del prestamo:{{ item['fecha_prestamo'] }}</h2> <!-- Aquí puedes agregar la fecha si la guardas en el carrito -->
+        </div>
+      <div class="text">
+        <h2 class="h2">Devolver libro antes del:<span class="tit">{{ item['fecha_vencimiento'] }}</span></h2> <!-- Aquí puedes agregar la fecha si la guardas en el carrito -->
+      </div>
+        </div>
+      <div class="button-container">
+      <form action="{{ url_for('remove_from_cart', book_id=item.id) }}" method="POST">
+  <button type="submit" class="bi">Devolver</button>
+</form>
+<button onclick="window.location.href='{{ item['url'] }}'" class="bi">Leer Libro</button>
+</div>
+
+        </div>
+
+
+    {% endfor %}
+      </div>
+
+
+
+
+  {% else %}
+      <div class="error">
+      <img src="{{ url_for('static', filename='agotado.png') }}" class:"e">   </div> <p>Por el momento, NO tienes libros guardados</p>
+
+  {% endif %}
+
+
+
+
+
+
+
+</body>
+</html>
